@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <attr name="lf_scale_view_max" format="integer" />
+        <attr name="lf_scale_view_min" format="integer" />
+        <attr name="lf_scale_view_height" format="dimension" />
+        <attr name="lf_scale_view_margin" format="dimension" />
+</resources>

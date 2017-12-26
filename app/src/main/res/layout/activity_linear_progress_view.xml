@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="lzh.myview.activity.LinearProgressViewActivity">
+    <FrameLayout
+    android:background="#0c8cf5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+    android:layout_centerHorizontal="true"
+    android:background="#09d8ef"
+    android:id="@+id/bt"
+    android:textColor="#fff"
+    android:text="更换进度条类型"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    </FrameLayout>
+    <lzh.myview.view.MyLinearProgressView
+        android:id="@+id/mlpv"
+        android:layout_centerInParent="true"
+        app:lp_textSize="30px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:lp_paintWidth="4px"
+        app:lp_bgPaintSize="1px"
+        />
+</RelativeLayout>

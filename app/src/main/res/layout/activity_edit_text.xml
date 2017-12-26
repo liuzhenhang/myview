@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="lzh.myview.activity.EditTextActivity">
+
+    <RelativeLayout
+    android:layout_margin="20dp"
+    android:background="@drawable/shape_bg_grey_fbfbfb_stroke_grey_aaa_1px_r10"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <lzh.myview.view.MyEditText
+    android:background="@null"
+    android:id="@+id/myet"
+    app:maxCount="6"
+    app:divideLineWidth="0.5dp"
+    android:inputType="number"
+    android:layout_width="243dp"
+    android:layout_height="43dp" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="lzh.myview.activity.ScaleViewActivity">
+
+<TextView
+    android:id="@+id/tv"
+    android:layout_centerHorizontal="true"
+    android:textSize="20dp"
+    android:textColor="#333"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <lzh.myview.view.ScaleView
+        android:id="@+id/scaleview"
+        app:lf_scale_view_max="200000"
+        app:lf_scale_view_min="0"
+        app:lf_scale_view_height="8dip"
+        app:lf_scale_view_margin="5dip"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_centerInParent="true"
+        android:background="#ef1c1c"
+        android:layout_width="2px"
+        android:layout_height="200px"></View>
+</RelativeLayout>

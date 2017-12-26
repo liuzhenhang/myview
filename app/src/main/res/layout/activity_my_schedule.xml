@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="lzh.myview.activity.MyScheduleActivity">
+    <Button
+        android:id="@+id/bt"
+        android:text="点击"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <lzh.myview.view.MyScheduleView
+    android:layout_centerInParent="true"
+    android:id="@+id/msv"
+    app:scircleColor="#df0781"
+    app:circleWidth="5dp"
+    app:lineColor="#3beff2"
+    app:linehight="5dp"
+    app:ScheduleCount="4"
+    app:msvTextsize="10sp"
+    app:msvTTextsize="13sp"
+    android:layout_width="320dp"
+    android:layout_height="200dp" />
+</RelativeLayout>

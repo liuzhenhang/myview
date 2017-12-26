@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+    
+    <TextView
+        android:id="@+id/tv_name"
+        android:textSize="20sp"
+        android:textColor="#26b3e2"
+        android:layout_centerInParent="true"
+        android:text="123456"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+</RelativeLayout>

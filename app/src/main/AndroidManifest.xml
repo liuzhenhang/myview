@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="lzh.myview">
+
+    <!-- <! &#45;&#45; 网络权限 &ndash;&gt; -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- <! &#45;&#45; 外部存储读权限，调试工具加载本地补丁需要 &ndash;&gt; -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.taobao.android.hotfix.IDSECRET"
+            android:value="24536806-1" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.APPSECRET"
+            android:value="26849a1f6f57cfb7643e537a30b4bab7" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.RSASECRET"
+            android:value="MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDk3F4C3yl0EudWL9gjK0iAV1mxnXPo6QjdtJYm9yNDJr8fqhF37VWXKyMxhZqsdS0eB63+vIRaf7TB+1N0dxJfyLO28z+Ub3V3kBCUIMrNOFyFPTxk0OImXmCx9IL0mIyqsXdV5BoBmGRTNTRhmjaK3ln26zkXZPc6ymTfIEtwgJ/92ISehf7wtBVPM93e8G99MLhq6X+E+21iIfXFXyy+SWTv6+IJvfumUq1Yg8BMYWqSMNSv/zAVdGmsUYtRCX35vtUNrk0WFILVw9eNEBMHx8ra+HJCbBgq7lNZAx+R/4Z6YEJobWCOOLZ4m89pwxPB2Vut8vpHOi2Pgzmn91ebAgMBAAECggEAYeoiUqo1qxKXZRltKIbRKw+0MTiDKcfh4jDr+NnNfWJrbNmvRZcGAnoTQZG+vkAXwHxapdzz52Ax7rhfWTnEY7STpxdlQVV6dV/up+Frwud1NhAf8aYoy2+fgSNyj8FglXr96oJ/2eTgL3VY5tU6tqkw5mJ295pb6AxFoezIOeYO7SGvfkeo+jthr/M7gXnp8EoeXUEv2Yhje1f6jekH8Lx4bAk+aP+/wbIPCiHDCShbWEPPE65qJFTtsWL28CC+ETxWR6xzwf/5aVqhX0bvxyYN5z7aCLaN7xcAWVZZxen7YAm8bUnnyK22AYXVGvOAUu7rMbKwl7+9M3AaYfqEMQKBgQD0Ka0lzwhNz4JMoLbcALRZNB7p0O5VF0ctrFLVQgm0LlgAVW4bq/ar8K8DfHrfZbKUtm8iqNqiYwMprhSUG0OsGjCfCM5H3ApexQ0reSHBjfTdTFER8ejsSwFyNfYJSTzNPIRCjUmlJVothZEk01e2mZmWg1eNR9+2jbWnvpSaowKBgQDv9MbVKjKRF84vF2Kd9ar/B3NiTjR+MOUrA71hAmSHJS4yweZpTPNEHovawkDDOEHVzp3wTNQjCCx7RbGZqWsCeSOX+emHs5BxBS6LVohQ2q/nffmsOflM5H2wR0hCK56VeDWGfSRJ0PUd3nRlkyeGQdRcr0KPOOzNn4FREZPWqQKBgQCb+3QOT3EypHrNkW7ApgKRambFYSChY7mpSAmzC/k/DsxRikJJk1aHCcAFLiUhSssHjnT5Y34pd6+xlPC4naJh9GlTcEC4T66gVKrRNxWFnbbtGbBBEpaHPnOyDx8bV5psU1j7W1/NDUvLASV0rT+/++jO6yGntF8LNQT0ISC2mQKBgQDZmJjuGPP+Cx5YKdat82d7GSCTFuQXQvOuDBgh7m+G9jpsoNT2zGcVcLXWTK052rwozNMAZEtC8ViU+OBSvgViGsQiPuh8vGLReqd4h6HZ4FX/kIdmnLPr/I/V2O43wyJt3LJ9IOJVZf3BdkcLDWScJPoUioHLKw3icTBteYkc8QKBgFs3/EYF1K1e2zrMJTzZv+pt28DRVLdnSCkux+mldHDyWmNKGTuFnd59mANf2inIIx0sNxRaCDKTke1bGcXaWrZyRQWbbzeCuFYsrrqYRAq4yPRLgvlAosyK21g9Ox9kFUftRkrBxv9X6tqxvtT9XI0Qry1n066oI8TiQsc4JBMP" />
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.MylistviewActivity" />
+        <activity android:name=".activity.ScaleViewActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".activity.AuditprogressActivity" />
+        <activity android:name=".activity.CircularProgressActivity" />
+        <activity android:name=".activity.CouponViewActivity" />
+        <activity android:name=".activity.EditTextActivity" />
+        <activity android:name=".activity.LinearProgressViewActivity" />
+        <activity android:name=".activity.ScrollerViewActivity" />
+        <activity android:name=".activity.MyScheduleActivity"></activity>
+    </application>
+
+</manifest>

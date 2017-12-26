@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="lzh.myview.activity.CouponViewActivity">
+
+    <Button
+    android:id="@+id/bt"
+    android:text="点击"
+        android:layout_centerHorizontal="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_centerInParent="true"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_height="100dp">
+    <RelativeLayout
+    android:background="#fae7d3"
+    android:layout_width="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_height="30dp"></RelativeLayout>
+    <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+    android:layout_weight="1"
+    android:layout_width="0dp"
+    android:layout_height="match_parent">
+    <TextView
+    android:layout_marginTop="20dp"
+    android:layout_centerHorizontal="true"
+    android:textColor="#ea511e"
+    android:text="0.5%"
+    android:textSize="30sp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <TextView
+    android:textColor="#383737"
+    android:text="2天后过期"
+    android:layout_alignParentBottom="true"
+    android:layout_marginBottom="5dp"
+    android:layout_centerHorizontal="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <RelativeLayout
+    android:layout_weight="2"
+    android:layout_width="0dp"
+    android:layout_height="match_parent">
+    <TextView
+    android:textColor="#ea511e"
+    android:text="加息券"
+    android:layout_marginTop="10dp"
+    android:layout_centerHorizontal="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <TextView
+    android:textColor="#383737"
+    android:text="适用：不限"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="30dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <TextView
+    android:textColor="#383737"
+    android:text="2017-04-24~2017-06-14  有效"
+    android:layout_alignParentBottom="true"
+    android:layout_marginBottom="5dp"
+    android:layout_centerHorizontal="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    </RelativeLayout>
+    </LinearLayout>
+    </RelativeLayout>
+    <lzh.myview.view.MyCouponView
+    android:id="@+id/mcv"
+    android:layout_centerInParent="true"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    app:mcv_paintColor="#06e8f4"
+    android:layout_height="100dp" />
+</RelativeLayout>

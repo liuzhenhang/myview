@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="lzh.myview.activity.AuditprogressActivity">
+
+    <Button
+        android:id="@+id/bt"
+        android:text="点击"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <lzh.myview.view.AuditprogressView
+        android:layout_centerInParent="true"
+        android:id="@+id/av"
+        app:av_imageWidth="30dp"
+        app:av_lineColor="#63edd2"
+        app:av_linehight="3dp"
+        app:av_progressCount="5"
+        app:av_Textsize="30px"
+        app:av_timeTextsize="20px"
+        app:av_Textcolor="#787575"
+        app:av_timeTextcolor="#787575"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+</RelativeLayout>
