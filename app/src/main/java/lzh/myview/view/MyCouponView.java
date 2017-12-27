@@ -55,26 +55,22 @@ public class MyCouponView extends View {
     }
 
     private void initPaint() {
-        recPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        recPaint.setStyle(Paint.Style.STROKE);
-        recPaint.setColor(paintColor);
-        recPaint.setAntiAlias(true);
+        recPaint = getPaint(Paint.Style.STROKE,paintColor);
 
-        semicirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        semicirclePaint.setDither(true);
-        semicirclePaint.setColor( Color.parseColor("#ffffff"));
-        semicirclePaint.setStyle(Paint.Style.FILL);
+        semicirclePaint =getPaint(Paint.Style.FILL,Color.parseColor("#ffffff"));
 
-        semicirclePaint2 = new Paint(Paint.ANTI_ALIAS_FLAG);
-        semicirclePaint2.setDither(true);
-        semicirclePaint2.setColor(paintColor);
-        semicirclePaint2.setStyle(Paint.Style.STROKE);
+        semicirclePaint2 =  getPaint(Paint.Style.STROKE,paintColor);
 
+        dashLinePaint = getPaint(Paint.Style.FILL,paintColor);
+    }
 
-        dashLinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        dashLinePaint.setDither(true);
-        dashLinePaint.setColor( paintColor);
-        dashLinePaint.setStyle(Paint.Style.FILL);
+    private Paint getPaint(Paint.Style style ,int  color){
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setStyle(style);
+        paint.setColor(color);
+        paint.setAntiAlias(true);
+        paint.setDither(true);
+        return paint;
     }
 
     @Override

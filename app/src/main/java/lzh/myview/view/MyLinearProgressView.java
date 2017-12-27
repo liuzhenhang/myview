@@ -107,59 +107,36 @@ public class MyLinearProgressView extends View{
         pRect = new Rect();
     }
     private void initPaint() {
-        paint = new Paint();
-        paint.setStyle(Paint.Style.FILL);
-        paint.setColor( Color.parseColor("#ffffff"));
-        paint.setStrokeWidth(bgPaintSize/5);
+        paint = getPaint(Paint.Style.FILL,Color.parseColor("#ffffff"),bgPaintSize / 2);
         paint.setStrokeCap(Paint.Cap.ROUND);
-        paint.setAntiAlias(true);
 
-        mPaint = new Paint();
-        mPaint.setStyle(Paint.Style.FILL);
-        //mPaint.setColor(Color.RED);
-        mPaint.setStrokeWidth(paintWidth);
+        mPaint = getPaint(Paint.Style.FILL,Color.RED,paintWidth);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
-        mPaint.setAntiAlias(true);
 
-        tPaint = new Paint();
-        tPaint.setStyle(Paint.Style.FILL);
-        tPaint.setColor(Color.RED);
-        tPaint.setStrokeWidth(paintWidth);
+        tPaint = getPaint(Paint.Style.FILL,Color.RED,paintWidth);
         tPaint.setTextSize(textSize);
-        tPaint.setAntiAlias(true);
 
-        ttPaint = new Paint();
-        ttPaint.setStyle(Paint.Style.FILL);
-        ttPaint.setColor(Color.WHITE);
-        ttPaint.setStrokeWidth(paintWidth);
+        ttPaint =getPaint(Paint.Style.FILL,Color.WHITE,paintWidth);
         ttPaint.setTextSize(textSize);
-        ttPaint.setAntiAlias(true);
 
-        recPaint = new Paint();
-        recPaint.setStyle(Paint.Style.FILL);
-        recPaint.setColor(Color.parseColor("#0c8cf5"));
+        recPaint = getPaint(Paint.Style.FILL,Color.parseColor("#0c8cf5"),3);
 
-        recPaint.setStrokeWidth(3);
-        recPaint.setAntiAlias(true);
-        recPaint1 = new Paint();
-        recPaint1.setStyle(Paint.Style.STROKE);
-        recPaint1.setColor(Color.parseColor("#ffffff"));
-        recPaint1.setStrokeWidth(1);
-        recPaint1.setAntiAlias(true);
-        recPaint2 = new Paint();
-        recPaint2.setStyle(Paint.Style.FILL);
-        recPaint2.setColor(Color.parseColor("#ffffff"));
-        recPaint2.setAntiAlias(true);
+        recPaint1 =getPaint(Paint.Style.STROKE,Color.parseColor("#ffffff"),1);
     }
-
+    private Paint getPaint(Paint.Style style ,int  color,float width){
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setStyle(style);
+        paint.setColor(color);
+        paint.setStrokeWidth(width);
+        paint.setAntiAlias(true);
+        return paint;
+    }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         width = w;
         height = h;
-//        startX = paintWidth+pading;
-//        endX = width -pading;
         String text =(int) progress+"%";
         ttPaint.getTextBounds(text, 0, text.length(), tTextRect);
         float TextWidth = tTextRect.width();
@@ -196,21 +173,8 @@ public class MyLinearProgressView extends View{
         ttPaint.getTextBounds(text, 0, text.length(), tTextRect);
         float TextHeight = tTextRect.height();
         float TextWidth = tTextRect.width();
-
         tRect.set((float) (lenth-TextWidth/2-8f),(float)(height/2-2*TextHeight),(float)(lenth+TextWidth/2+8f),(float)(height/2-0.6*TextHeight));
-//        pRect.set((int) (lenth-TextWidth/2-8f),(int)(height/2-2*TextHeight),(int)(lenth+TextWidth/2+8f),(int)(height/2-0.2*TextHeight));
-
-
-        // 画矩形
-//        canvas.drawRect(tRect,recPaint);
-//        canvas.drawRoundRect(tRect,6,6,recPaint);
         canvas.drawRoundRect(tRect,6,6,recPaint1);
-//        Bitmap bitmap = BitmapFactory.decodeResource(mcontext.getResources(),R.mipmap.con_img_float);
-//        // 指定图片绘制区域(左上角的四分之一)
-//        Rect src = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-//// 绘制图片
-//        canvas.drawBitmap(bitmap, src, pRect, null);
-//        //资源文件(drawable/mipmap/raw)中获取
         Paint.FontMetricsInt fontMetrics = ttPaint.getFontMetricsInt();
         // 获取baseLine
         int baseline = (int) (tRect.top + (tRect.bottom - tRect.top - fontMetrics.bottom + fontMetrics.top) / 2 - fontMetrics.top);
@@ -228,7 +192,6 @@ public class MyLinearProgressView extends View{
     }
 
     private void drawText(Canvas canvas) {
-
         String text =(int) progress+"%";
         tPaint.getTextBounds(text, 0, text.length(), tTextRect);
         float TextHeight = tTextRect.height();
@@ -259,8 +222,6 @@ public class MyLinearProgressView extends View{
     }
     /**
      * dp 2 px
-     *
-     * @param dpVal
      */
     protected int dp2px(int dpVal) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,

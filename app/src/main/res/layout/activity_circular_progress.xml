@@ -21,7 +21,7 @@
     app:endColor="#de072f"
     app:labelText="进度"
     app:labelTextSize="20sp"
-    app:progressTextSize="30sp"
+    app:progressTextSize="20dp"
     app:fTextSize="20sp"
     app:scaleCount="24"
     app:startColor="#82f2eb"

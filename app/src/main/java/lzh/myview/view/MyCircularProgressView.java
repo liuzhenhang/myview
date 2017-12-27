@@ -52,10 +52,7 @@ public class MyCircularProgressView extends View {
     private Paint mLabelTextPaint;
     /* 百分比文本画笔 */
     private Paint mProgressTextPaint;
-
     private Paint fTextPaint;
-
-
     /* 弧线外切矩形 */
     private RectF mArcRectF;
     /* 测量文本宽高的矩形 */
@@ -72,6 +69,7 @@ public class MyCircularProgressView extends View {
     }
     public MyCircularProgressView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
+
     }
     public MyCircularProgressView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -86,43 +84,40 @@ public class MyCircularProgressView extends View {
         mProgressTextSize = ta.getDimension(R.styleable.MyCircularProgressView_progressTextSize, 160);
         mLabelTextSize = ta.getDimension(R.styleable.MyCircularProgressView_labelTextSize, 64);
         fTextSize =ta.getDimension(R.styleable.MyCircularProgressView_fTextSize, 30);
-
         ta.recycle();
-        mArcBackPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mArcBackPaint.setStyle(Paint.Style.STROKE);
-        mArcBackPaint.setStrokeWidth(mArcWidth);
-        mArcBackPaint.setColor(Color.LTGRAY);
-        mArcForePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mArcForePaint.setStyle(Paint.Style.STROKE);
-        mArcForePaint.setStrokeWidth(mArcWidth);
+        init(context);
+    }
+
+    private void init(Context context) {
+
+        mArcBackPaint =getPaint(Paint.Style.STROKE,Color.LTGRAY,mArcWidth,0);
+
+        mArcForePaint =getPaint(Paint.Style.STROKE,Color.WHITE,mArcWidth,0);
         mArcForePaint.setStrokeCap(Paint.Cap.ROUND);
-        mArcRectF = new RectF();
 
-        mLinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mLinePaint.setStyle(Paint.Style.STROKE);
-        mLinePaint.setColor(Color.WHITE);
-        mLinePaint.setStrokeWidth(DensityUtils.dp2px(context, 2));
+        mLinePaint = getPaint(Paint.Style.STROKE,Color.WHITE,DensityUtils.dp2px(context, 2),0);
 
-        mProgressTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mProgressTextPaint.setStyle(Paint.Style.FILL);
-        mProgressTextPaint.setColor(mTextColor);
-        mProgressTextPaint.setTextSize(mProgressTextSize);
+        mProgressTextPaint =getPaint(Paint.Style.FILL,mTextColor,0,mProgressTextSize);
 
-        fTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        fTextPaint.setStyle(Paint.Style.FILL);
-        fTextPaint.setColor(mTextColor);
-        fTextPaint.setTextSize(fTextSize);
+        fTextPaint = getPaint(Paint.Style.FILL,mTextColor,0,fTextSize);
 
-        mLabelTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mLabelTextPaint.setStyle(Paint.Style.FILL);
-        mLabelTextPaint.setColor(mTextColor);
-        mLabelTextPaint.setTextSize(mLabelTextSize);
+        mLabelTextPaint = getPaint(Paint.Style.FILL,mTextColor,0,mLabelTextSize);
 
         mTextRect = new Rect();
-
         fTextRect = new Rect();
-
+        mArcRectF = new RectF();
     }
+
+    private Paint getPaint(Paint.Style style ,int  color,float width,float size){
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setStyle(style);
+        paint.setColor(color);
+        paint.setStrokeWidth(width);
+        paint.setTextSize(size);
+        paint.setAntiAlias(true);
+        return paint;
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         setMeasuredDimension(measuredDimension(widthMeasureSpec), measuredDimension(heightMeasureSpec));
@@ -160,7 +155,6 @@ public class MyCircularProgressView extends View {
 //            canvas.rotate(360 / mScaleCount, getWidth() / 2, getHeight() / 2);
 //        }
         //画百分比文本
-//        String progressText = mProgress + "%";
         String progressText = mProgress+"";
         mProgressTextPaint.getTextBounds(progressText, 0, progressText.length(), mTextRect);
         float progressTextWidth = mTextRect.width();
@@ -175,13 +169,6 @@ public class MyCircularProgressView extends View {
         canvas.drawText(fff, getWidth() / 2 + progressTextWidth / 2+10,
                 getHeight() / 2 + TextHeight / 2, fTextPaint);
 
-
-
-
-//        //画标签说明文本
-//        mLabelTextPaint.getTextBounds(mLabelText, 0, mLabelText.length(), mTextRect);
-//        canvas.drawText(mLabelText, getWidth() / 2 - mTextRect.width() / 2,
-//                getHeight() / 2 - progressTextHeight / 2 - mTextRect.height(), mLabelTextPaint);
     }
 
     public void setProgress(int progress) {

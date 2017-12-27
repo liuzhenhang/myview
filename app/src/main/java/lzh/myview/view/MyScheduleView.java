@@ -113,38 +113,20 @@ public class MyScheduleView extends View {
      * 初始化画笔
      */
     private void initPaint() {
-        mLinePaint = new Paint();
-        mLinePaint.setStyle(Paint.Style.FILL);
-        mLinePaint.setColor(circleColor);
-        mLinePaint.setAntiAlias(true);
+        mLinePaint = getPaint(Paint.Style.FILL,circleColor);
 
-        ttPaint = new Paint();
-        ttPaint.setStyle(Paint.Style.FILL);
-        ttPaint.setColor(Color.BLACK);
+        ttPaint = getPaint(Paint.Style.FILL,Color.BLACK);
         ttPaint.setTextSize(ttextsize);
-        ttPaint.setAntiAlias(true);
 
-        CirclePaint = new Paint();
-        CirclePaint.setStyle(Paint.Style.FILL);
-        CirclePaint.setColor(circleColor);
-        CirclePaint.setAntiAlias(true);
+        CirclePaint =getPaint(Paint.Style.FILL,circleColor);
 
-        mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mTextPaint.setStyle(Paint.Style.FILL);
-        mTextPaint.setColor(Color.WHITE);
+        mTextPaint = getPaint(Paint.Style.FILL,Color.WHITE);
         mTextPaint.setTextSize(textsize);
-        mTextPaint.setAntiAlias(true);
 
-        RECpaint = new Paint();
-        RECpaint.setStyle(Paint.Style.FILL);
-        RECpaint.setColor(Color.BLUE);
-        CirclePaint.setAntiAlias(true);
+        RECpaint =getPaint(Paint.Style.FILL,Color.BLUE);
 
-        tipPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        tipPaint.setColor(Color.BLUE);
-        tipPaint.setAntiAlias(true);
+        tipPaint = getPaint(Paint.Style.FILL,Color.BLUE);
         tipPaint.setStrokeCap(Paint.Cap.ROUND);
-        tipPaint.setStyle(Paint.Style.FILL);
     }
 
     /**

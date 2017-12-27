@@ -38,7 +38,6 @@ public class AuditprogressView extends View {
        */
     private int height;
     private int width;
-
     /**
      * 第一个图的坐标
      */
@@ -46,7 +45,6 @@ public class AuditprogressView extends View {
     private float startY;
 
     private RectF imageRectF; // 图片绘制的区域
-
 
     private ArrayList<String>  textlist ; // 进度文字list
 
@@ -91,10 +89,8 @@ public class AuditprogressView extends View {
         paint = new Paint();
         // 抗锯齿
         paint.setAntiAlias(true);
-//        // 设定是否使用图像抖动处理，会使绘制出来的图片颜色更加平滑和饱满，图像更加清晰
+       // 设定是否使用图像抖动处理，会使绘制出来的图片颜色更加平滑和饱满，图像更加清晰
         paint.setDither(true);
-//        // 空心
-//        paint.setStyle(Paint.Style.STROKE);
         // 文字居中
         paint.setTextAlign(Paint.Align.CENTER);
     }
@@ -104,9 +100,6 @@ public class AuditprogressView extends View {
         width = w;
         height = h;
     }
-
-
-
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -120,8 +113,6 @@ public class AuditprogressView extends View {
             drawText(canvas);
             drawTimeText(canvas);
         }
-
-
     }
     // 画文本
     private void drawTimeText(Canvas canvas) {
@@ -139,8 +130,6 @@ public class AuditprogressView extends View {
         }
     }
 
-
-
     // 画图片
     private void drawImage(Canvas canvas) {
         for (int i = 0; i < progressCount; i++) {
@@ -149,14 +138,10 @@ public class AuditprogressView extends View {
                 if (i ==progress-1&& !isProgress){
                     audit_drawBitmap =BitmapFactory.decodeResource(getResources(), R.drawable.defeated);
                 }
-//
             }else {
                 audit_drawBitmap =BitmapFactory.decodeResource(getResources(), R.drawable.no_finsh);
-//
             }
             // 绘制图片
-//            canvas.drawBitmap(audit_drawBitmap,startX -av_imageWidth/2+i * (width- 2*(av_imageWidth+av_imageWidth/2))/(progressCount-1), startY-av_imageWidth/2, paint);
-
             imageRectF.set((float)(startX -av_imageWidth/2+i * (width- 2*(av_imageWidth+av_imageWidth/2))/(progressCount-1)),(float)(startY-av_imageWidth/2),(float)(startX +av_imageWidth/2+i * (width- 2*(av_imageWidth+av_imageWidth/2))/(progressCount-1)),(float)(startY+av_imageWidth/2));
             canvas.drawBitmap(audit_drawBitmap, null, imageRectF, null);
         }
@@ -171,7 +156,6 @@ public class AuditprogressView extends View {
                 paint.setColor(Color.BLACK);;
             }
             canvas.drawLine(2*av_imageWidth/3+startX + i * (width- 2*(av_imageWidth+av_imageWidth/2))/(progressCount-1),startY,startX-2*av_imageWidth/3 + (i+1) * (width- 2*(av_imageWidth+av_imageWidth/2))/(progressCount-1),startY,paint);
-
         }
     }
 

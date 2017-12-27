@@ -116,15 +116,10 @@ public class MyEditText extends EditText {
 
         circlePaint = getPaint(5, Paint.Style.FILL, circleColor);
 
-
         borderPaint = getPaint(3, Paint.Style.STROKE, borderColor);
 
    divideLinePaint = getPaint(divideLineWidth, Paint.Style.STROKE,R.color.line );
-//        divideLinePaint = new Paint();
-//        divideLinePaint.setStrokeWidth(divideLineWidth);
-//        divideLinePaint.setStyle(Paint.Style.FILL);
-//        divideLinePaint.setColor(getResources().getColor(R.color.line));
-//        divideLinePaint.setAntiAlias(true);
+
     }
     /**
      * 设置画笔
@@ -225,8 +220,6 @@ public class MyEditText extends EditText {
     }
     /**
      * 获取输入的密码
-     *
-     * @return
      */
     public String getPasswordString() {
         return getText().toString().trim();
