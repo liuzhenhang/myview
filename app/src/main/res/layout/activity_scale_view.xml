@@ -15,10 +15,9 @@
     android:layout_height="wrap_content" />
     <lzh.myview.view.ScaleView
         android:id="@+id/scaleview"
-        app:lf_scale_view_max="200000"
-        app:lf_scale_view_min="0"
-        app:lf_scale_view_height="8dip"
-        app:lf_scale_view_margin="5dip"
+        app:scale_view_max="200"
+        app:scale_view_min="0"
+        app:scale_view_height="@dimen/size_16px"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

@@ -13,6 +13,10 @@ public class MyApplication extends Application {
      * 全局Context，方便引用
      */
     public static MyApplication appContext;
+
+
+
+
     @Override
     public void onCreate() {
         super.onCreate();

@@ -51,7 +51,8 @@
         <activity android:name=".activity.EditTextActivity" />
         <activity android:name=".activity.LinearProgressViewActivity" />
         <activity android:name=".activity.ScrollerViewActivity" />
-        <activity android:name=".activity.MyScheduleActivity"></activity>
+        <activity android:name=".activity.MyScheduleActivity" />
+        <activity android:name=".activity.SelectActivity"></activity>
     </application>
 
 </manifest>

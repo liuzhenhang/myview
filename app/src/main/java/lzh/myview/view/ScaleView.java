@@ -36,6 +36,8 @@ public class ScaleView extends View {
     private int direction; // 用于判断滑动方向
     private int mMidScale; //中间刻度
     private Paint paint; // 画笔
+
+    boolean is =true;
     protected OnScrollListener mScrollListener;
 
     public interface OnScrollListener {
@@ -45,16 +47,29 @@ public class ScaleView extends View {
         super(context);
     }
 
+
     public ScaleView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         mcontext = context;
         getAtt(attrs);
-        init();
+      //  init();
     }
     /**
      * 初始化
      */
     private void init() {
+
+
+    }
+    private void getAtt(AttributeSet attrs) {
+        TypedArray typedArray = mcontext.obtainStyledAttributes(attrs, R.styleable.ScaleView);
+        mMin = typedArray.getInt(R.styleable.ScaleView_scale_view_min, 0);
+        mMax = typedArray.getInt(R.styleable.ScaleView_scale_view_max, 200);
+        mScaleMargin = (int) typedArray.getDimension(R.styleable.ScaleView_scale_view_margin, 15);
+        mScaleHeight = (int) typedArray.getDimension(R.styleable.ScaleView_scale_view_height, 20);
+        textSize = (int) typedArray.getDimension(R.styleable.ScaleView_scale_view_text_size,20);
+        paintLinewidth = (int) typedArray.getDimension(R.styleable.ScaleView_scale_view_line_size,2);
+        typedArray.recycle();
         mScroller = new Scroller(mcontext);
         allWidth = (mMax - mMin) * mScaleMargin;
         mHeight = mScaleHeight * 8;
@@ -72,17 +87,6 @@ public class ScaleView extends View {
         paint.setStyle(Paint.Style.STROKE);
         // 文字居中
         paint.setTextAlign(Paint.Align.CENTER);
-
-    }
-    private void getAtt(AttributeSet attrs) {
-        TypedArray typedArray = mcontext.obtainStyledAttributes(attrs, R.styleable.ScaleView);
-        mMin = typedArray.getInt(R.styleable.ScaleView_scale_view_min, 0);
-        mMax = typedArray.getInt(R.styleable.ScaleView_scale_view_max, 200000);
-        mScaleMargin = (int) typedArray.getDimension(R.styleable.ScaleView_scale_view_margin, 15);
-        mScaleHeight = (int) typedArray.getDimension(R.styleable.ScaleView_scale_view_height, 20);
-        textSize = (int) typedArray.getDimension(R.styleable.ScaleView_scale_view_text_size,20);
-        paintLinewidth = (int) typedArray.getDimension(R.styleable.ScaleView_scale_view_line_size,2);
-        typedArray.recycle();
     }
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -90,7 +94,7 @@ public class ScaleView extends View {
         super.onMeasure(widthMeasureSpec, height);
         mWith = getMeasuredWidth();
         direction = mWith / mScaleMargin / 2 + mMin;
-        mMidScale = mWith / mScaleMargin / 2 + mMin;
+        mMidScale = 0;
     }
 
     @Override
@@ -103,37 +107,38 @@ public class ScaleView extends View {
 
     // 确定中心位置
     private void onDrawDirection(Canvas canvas) {
-        //每一屏幕刻度的个数/2
-        int countScale = mWith / mScaleMargin / 2;
+//        //每一屏幕刻度的个数/2
+//        int countScale = mWith / mScaleMargin / 2;
         //根据滑动的距离，计算指针的位置（指针始终位于屏幕中间）
         int finalX = mScroller.getFinalX();
         //滑动的刻度
         int tmpCountScale = (int) Math.rint((double) finalX / (double) mScaleMargin); //四舍五入取整
         //总刻度
-        mCountScale = tmpCountScale + countScale + mMin;
+        mCountScale = tmpCountScale + mMin;
         if (mScrollListener != null) { //回调方法
             mScrollListener.onScaleScroll(mCountScale); // 获取当前的刻度
         }
+
     }
 
     //画刻度和数字
     private void onDrawScale(Canvas canvas) {
         paint.setColor(Color.parseColor("#dddddd"));
         paint.setTextSize(textSize);
-        for (int i = 0, k = mMin; i <200; i++) {
+        for (int i = 0, k = mMin; i <=200; i++) {
             if (i % 10 == 0) { //整值
                 paint.setStrokeWidth(paintLinewidth);
-                canvas.drawLine(i * mScaleMargin, mHeight, i * mScaleMargin, mHeight - iScaleHeight, paint);
+                canvas.drawLine(i * mScaleMargin+mWith/2, mHeight, i * mScaleMargin+mWith/2, mHeight - iScaleHeight, paint);
                 //整值文字
                 paint.setStrokeWidth(0);
-                canvas.drawText(String.valueOf((k+"")), i * mScaleMargin, mHeight - iScaleHeight -10, paint);
+                canvas.drawText(String.valueOf((k+"")), i * mScaleMargin+mWith/2, mHeight - iScaleHeight -10, paint);
                 k += 10000;
             } else if (i % 5 == 0){
                 paint.setStrokeWidth(paintLinewidth);
-                canvas.drawLine(i * mScaleMargin, mHeight, i * mScaleMargin, mHeight - iScaleHeight+10, paint);
+                canvas.drawLine(i * mScaleMargin+mWith/2, mHeight, i * mScaleMargin+mWith/2, mHeight - iScaleHeight+10, paint);
             } else {
                 paint.setStrokeWidth(paintLinewidth);
-                canvas.drawLine(i * mScaleMargin, mHeight, i * mScaleMargin, mHeight - mScaleHeight, paint);
+                canvas.drawLine(i * mScaleMargin+mWith/2, mHeight, i * mScaleMargin+mWith/2, mHeight - mScaleHeight, paint);
             }
         }
     }
@@ -163,7 +168,7 @@ public class ScaleView extends View {
                     if (mCountScale >= mMax && dataX >= 0) //禁止继续向左滑动
                         return super.onTouchEvent(event);
                 }
-                ScrollBy(dataX, 0);
+                smoothScrollBy(dataX, 0);
                 mLastX = x;
                 postInvalidate();
                 direction = mCountScale;
@@ -178,6 +183,13 @@ public class ScaleView extends View {
         }
         return super.onTouchEvent(event);
     }
+
+
+
+
+
+
+
 
     // 重新绘制
     public  void  setchange(){
@@ -199,7 +211,7 @@ public class ScaleView extends View {
         }
     }
 
-    public void ScrollBy(int dx, int dy) {
+    public void smoothScrollBy(int dx, int dy) {
         mScroller.startScroll(mScroller.getFinalX(), mScroller.getFinalY(), dx, dy);
     }
     /**
