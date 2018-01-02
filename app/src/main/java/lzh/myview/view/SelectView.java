@@ -21,11 +21,10 @@ import lzh.myview.util.UIUtils;
  */
 
 public class SelectView extends ViewGroup {
-    private  int count ;  // wenben 的数量
     ViewGroup.LayoutParams  params;
     private Context mContext;
     private Scroller scroller;  // 用于滚动操作的实例
-    private ArrayList<String> list = new ArrayList<>();
+    private ArrayList<String> mlist ;
     private OnPayListener listener;
     private  float yDown;   // 手指按下时，Y 的屏幕坐标
     private float  yMove;    // 移动时，Y的屏幕坐标
@@ -42,12 +41,6 @@ public class SelectView extends ViewGroup {
         super(context, attrs);
         mContext = context;
         scroller = new Scroller(context);
-        list.add("天");
-        list.add("月");
-        list.add("天");
-        list.add("月");
-        list.add("天");
-        list.add("月");
     }
     public SelectView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -66,7 +59,7 @@ public class SelectView extends ViewGroup {
     protected void onLayout(boolean b, int l, int i1, int i2, int i3) {
         if (b) {
             int childCount = getChildCount();
-            for (int i = 0; i < count; i++) {
+            for (int i = 0; i < mlist.size(); i++) {
                     TextView childView = (TextView) getChildAt(i);
                     tlist.add(childView);
                 // 为ScrollerLayout中的每一个子控件在水平方向上进行布局
@@ -77,8 +70,8 @@ public class SelectView extends ViewGroup {
     }
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        int scrolledY = 0;
         TextView childView = (TextView) getChildAt(0);
-        TextView childView2 = (TextView) getChildAt(getChildCount() - 1);
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
 //                if (scroller != null && !scroller.isFinished()) {
@@ -90,20 +83,24 @@ public class SelectView extends ViewGroup {
                 return  true;
             case MotionEvent.ACTION_MOVE:
                 yMove =event.getRawY();
-                int scrolledY = (int) (yLastMove - yMove);
-                if (   scrolledY<0 &&getScrollY()<0) {
+                 scrolledY = (int) (yLastMove - yMove);
+                 //下滑边界
+                if ( scrolledY<0 &&getScrollY()<0) {
 //                    Log.d("=================","TTTTTTTTTTTTTTTT"+getScrollY());
                    return super.onTouchEvent(event);
-                } else if (   scrolledY>0  &&getScrollY()>(count-1)*childView.getHeight()) {
+                   // 上滑边界
+                } else if (   scrolledY>0  &&getScrollY()>(mlist.size()-1)*childView.getHeight()) {
 //                    Log.d("=================","BBBBBBBBBBBBBBBBB"+getScrollY());
                   return super.onTouchEvent(event);
                 }
 
-            if (getScrollY()<=(count-1)*childView.getHeight()) {
+            if (getScrollY()<(mlist.size()-1)*childView.getHeight()) {
              if (getScrollY()>=childView.getHeight()/2) t = (getScrollY())/(childView.getHeight())+1;
             if (scrolledY<0&&getScrollY()<=childView.getHeight()/2) t=0;
+//                Log.d("=================","SSSSSSSSSSSSSS"+getScrollY());
+//                Log.d("=================","SSSSSSSSSSSSSS"+t);
             }
-                for (int i =0;i<count;i++){
+                for (int i =0;i<mlist.size();i++){
                     if (i==t){
                         tlist.get(i).setTextColor(Color.parseColor("#333333"));
                         select =i;
@@ -113,36 +110,35 @@ public class SelectView extends ViewGroup {
                 }
                 yLastMove = yMove;
                 scrollBy(0, scrolledY);
-//                scroller.startScroll(0, 0, 0, scrolledY);
+//                  scroller.startScroll(0, getScrollY(), 0, scrolledY,50);
+                invalidate();
                 return true;
             case MotionEvent.ACTION_UP:
-                // 第二步，调用startScroll()方法来初始化滚动数据并刷新界面
-                // startScroll()方法接收四个参数，第一个参数是滚动开始时X的坐标，第二个参数是滚动开始时Y的坐标，
-                // 第三个参数是横向滚动的距离，正值表示向左滚动，第四个参数是纵向滚动的距离，正值表示向上滚动。紧接着调用invalidate()方法来刷新界面。
-                invalidate();
+
                 if (listener!=null) listener.onGetPoint(select);
                 return true;
         }
         return super.onTouchEvent(event);
     }
 
-
-
 //    @Override
 //    public void computeScroll() {
 //        // 第三步，重写computeScroll()方法，并在其内部完成平滑滚动的逻辑
 //        if (scroller.computeScrollOffset()) {
 //            scrollTo(scroller.getCurrX(), scroller.getCurrY());
-//            invalidate();
+//            postInvalidate();
 //        }
 //    }
-    public  void  setCount( int mcount){
-        count  = mcount;
+    public  void  setCount(ArrayList<String> list){
+        mlist  = list;
         if (params==null) params = new ViewGroup.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        for (int i = 0;i< count;i++){
+        for (int i = 0;i< mlist.size();i++){
             TextView textView = new TextView(mContext);
             textView.setText(list.get(i));
-            if (i==0)textView.setTextColor(Color.parseColor("#333333"));
+            if (i==0){textView.setTextColor(Color.parseColor("#333333"));}
+            else {
+                textView.setTextColor(Color.parseColor("#dddddd"));
+            }
             textView.setTextSize(TypedValue.COMPLEX_UNIT_PX,UIUtils.getDimens(R.dimen.size_30px));
             textView.setLayoutParams(params);
             addView(textView);

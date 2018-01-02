@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ public class ScaleView extends View {
     private int paintLinewidth;
     private int allWidth; //总宽度
     private int mHeight; //高度
+    private int Height; //高度
     private int textSize;
     private Scroller mScroller; // 滑动类
     private int mLastX; // 滑动的坐标
@@ -59,7 +61,6 @@ public class ScaleView extends View {
      */
     private void init() {
 
-
     }
     private void getAtt(AttributeSet attrs) {
         TypedArray typedArray = mcontext.obtainStyledAttributes(attrs, R.styleable.ScaleView);
@@ -67,15 +68,16 @@ public class ScaleView extends View {
         mMax = typedArray.getInt(R.styleable.ScaleView_scale_view_max, 200);
         mScaleMargin = (int) typedArray.getDimension(R.styleable.ScaleView_scale_view_margin, 15);
         mScaleHeight = (int) typedArray.getDimension(R.styleable.ScaleView_scale_view_height, 20);
+        Height = (int) typedArray.getDimension(R.styleable.ScaleView_scale_view_Height, 20);
         textSize = (int) typedArray.getDimension(R.styleable.ScaleView_scale_view_text_size,20);
         paintLinewidth = (int) typedArray.getDimension(R.styleable.ScaleView_scale_view_line_size,2);
         typedArray.recycle();
         mScroller = new Scroller(mcontext);
         allWidth = (mMax - mMin) * mScaleMargin;
-        mHeight = mScaleHeight * 8;
+        mHeight = Height;
         iScaleHeight = mScaleHeight * 2;
         // 设置layoutParams
-        ViewGroup.MarginLayoutParams lp = new ViewGroup.MarginLayoutParams(allWidth, mHeight);
+        ViewGroup.MarginLayoutParams lp = new ViewGroup.MarginLayoutParams(allWidth, Height);
         this.setLayoutParams(lp);
         // 画笔
         paint = new Paint();
@@ -107,8 +109,8 @@ public class ScaleView extends View {
 
     // 确定中心位置
     private void onDrawDirection(Canvas canvas) {
-//        //每一屏幕刻度的个数/2
-//        int countScale = mWith / mScaleMargin / 2;
+        //每一屏幕刻度的个数/2
+        // int countScale = mWith / mScaleMargin / 2;
         //根据滑动的距离，计算指针的位置（指针始终位于屏幕中间）
         int finalX = mScroller.getFinalX();
         //滑动的刻度
@@ -149,6 +151,13 @@ public class ScaleView extends View {
         paint.setStrokeWidth(paintLinewidth);
         canvas.drawLine(-mWith, mHeight, allWidth+mWith, mHeight, paint);
     }
+
+//            mScroller.getCurrX() //获取mScroller当前水平滚动的位置
+//            mScroller.getCurrY() //获取mScroller当前竖直滚动的位置
+//            mScroller.getFinalX() //获取mScroller最终停止的水平位置
+//            mScroller.getFinalY() //获取mScroller最终停止的竖直位置
+//            mScroller.setFinalX(int newX) //设置mScroller最终停留的水平位置，没有动画效果，直接跳到目标位置
+//            mScroller.setFinalY(int newY) //设置mScroller最终停留的竖直位置，没有动画效果，直接跳到目标位置
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int x = (int) event.getX();
@@ -177,19 +186,21 @@ public class ScaleView extends View {
                 if (mCountScale < mMin) mCountScale = mMin;
                 if (mCountScale > mMax) mCountScale = mMax;
                 int finalX = (mCountScale - mMidScale) * mScaleMargin;
+//                mScroller.getCurrX() //获取mScroller当前水平滚动的位置
+//                mScroller.getCurrY() //获取mScroller当前竖直滚动的位置
+//                mScroller.getFinalX() //获取mScroller最终停止的水平位置
+//                mScroller.getFinalY() //获取mScroller最终停止的竖直位置
+//                mScroller.setFinalX(int newX) //设置mScroller最终停留的水平位置，没有动画效果，直接跳到目标位置
+//                mScroller.setFinalY(int newY) //设置mScroller最终停留的竖直位置，没有动画效果，直接跳到目标位置
+//                滚动，startX, startY为开始滚动的位置，dx,dy为滚动的偏移量, duration为完成滚动的时间
+//                mScroller.startScroll(int startX, int startY, int dx, int dy) //使用默认完成时间250ms
+//                mScroller.startScroll(int startX, int startY, int dx, int dy, int duration)
                 mScroller.setFinalX(finalX); //纠正指针位置
                 postInvalidate();
                 return true;
         }
         return super.onTouchEvent(event);
     }
-
-
-
-
-
-
-
 
     // 重新绘制
     public  void  setchange(){

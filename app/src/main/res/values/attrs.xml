@@ -91,7 +91,7 @@
         <attr name="scale_view_height" format="dimension" />
         <attr name="scale_view_margin" format="dimension" />
         <attr name="scale_view_text_size" format="dimension" />
-        <attr name="scale_view_mHeight" format="dimension" />
+        <attr name="scale_view_Height" format="dimension" />
         <attr name="scale_view_line_size" format="dimension" />
     </declare-styleable>
 

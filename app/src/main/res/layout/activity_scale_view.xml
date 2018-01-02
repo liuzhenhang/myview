@@ -17,7 +17,9 @@
         android:id="@+id/scaleview"
         app:scale_view_max="200"
         app:scale_view_min="0"
-        app:scale_view_height="@dimen/size_16px"
+        app:scale_view_margin="@dimen/size_20px"
+        app:scale_view_Height="@dimen/size_200px"
+        app:scale_view_height="@dimen/size_50px"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
