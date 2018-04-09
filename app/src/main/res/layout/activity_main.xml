@@ -5,52 +5,76 @@
     android:gravity="center_horizontal"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<Button
-    android:id="@+id/Auditprogress"
-    android:text="自定义view之审核进度"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
- <Button
-     android:id="@+id/CircularProgressView"
-     android:text="自定义view之圆环进度条"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content" />
- <Button
-     android:id="@+id/MyCouponView"
-     android:text="定义view之贴纸优惠劵"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content" />
- <Button
-     android:id="@+id/MyEditText"
-     android:text="自定义view之密码输入框"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content" />
- <Button
-     android:id="@+id/MyLinearProgressView"
-     android:text="自定义view之线性百分比进度条"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content" />
- <Button
-     android:id="@+id/ScaleView"
-     android:text="自定义view之刻度尺计算金额"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content" />
+ <ScrollView
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+   <Button
+       android:id="@+id/Auditprogress"
+       android:text="自定义view之审核进度"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+   <Button
+       android:id="@+id/CircularProgressView"
+       android:text="自定义view之圆环进度条"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+   <Button
+       android:id="@+id/MyCouponView"
+       android:text="定义view之贴纸优惠劵"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+   <Button
+       android:id="@+id/MyEditText"
+       android:text="自定义view之密码输入框"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+   <Button
+       android:id="@+id/MyLinearProgressView"
+       android:text="自定义view之线性百分比进度条"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+   <Button
+       android:id="@+id/ScaleView"
+       android:text="自定义view之刻度尺计算金额"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
 
- <Button
-     android:id="@+id/ScrollerView"
-     android:text="自定义view之Scroller实现滑动效果"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content" />
- <Button
-     android:id="@+id/MyScheduleView"
-     android:text="自定义view之vip展示"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content" />
+   <Button
+       android:id="@+id/ScrollerView"
+       android:text="自定义view之Scroller实现滑动效果"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+   <Button
+       android:id="@+id/MyScheduleView"
+       android:text="自定义view之vip展示"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
 
- <Button
-     android:id="@+id/SelectView"
-     android:text="选择器"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content" />
+   <Button
+       android:id="@+id/SelectView"
+       android:text="选择器"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+   <Button
+       android:id="@+id/slideconflict"
+       android:text="滑动冲突"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+   <Button
+       android:id="@+id/bt_good"
+       android:text="点赞效果控件"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+   <Button
+       android:id="@+id/bt_notification"
+       android:text="通告栏"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+  </LinearLayout>
+ </ScrollView>
 
 </LinearLayout>

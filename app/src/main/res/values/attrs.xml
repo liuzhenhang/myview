@@ -95,4 +95,16 @@
         <attr name="scale_view_line_size" format="dimension" />
     </declare-styleable>
 
+    <!--可滚动的通知栏-->
+    <declare-styleable name="MyNotificationView">
+        <attr name="mvInterval" format="integer|reference"/>
+        <attr name="mvTextSize" format="dimension|reference"/>
+        <attr name="mvTimeTextSize" format="dimension|reference"/>
+        <attr name="mvTextColor" format="color|reference"/>
+        <attr name="mvTimeTextColor" format="color|reference"/>
+        <attr name="mvSingleLine" format="boolean"/>
+    </declare-styleable>
+
+
+
 </resources>

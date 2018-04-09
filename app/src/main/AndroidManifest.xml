@@ -11,22 +11,22 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".MyApplication"
+        android:name=".SophixStubApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data
-            android:name="com.taobao.android.hotfix.IDSECRET"
-            android:value="24536806-1" />
-        <meta-data
-            android:name="com.taobao.android.hotfix.APPSECRET"
-            android:value="26849a1f6f57cfb7643e537a30b4bab7" />
-        <meta-data
-            android:name="com.taobao.android.hotfix.RSASECRET"
-            android:value="MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDk3F4C3yl0EudWL9gjK0iAV1mxnXPo6QjdtJYm9yNDJr8fqhF37VWXKyMxhZqsdS0eB63+vIRaf7TB+1N0dxJfyLO28z+Ub3V3kBCUIMrNOFyFPTxk0OImXmCx9IL0mIyqsXdV5BoBmGRTNTRhmjaK3ln26zkXZPc6ymTfIEtwgJ/92ISehf7wtBVPM93e8G99MLhq6X+E+21iIfXFXyy+SWTv6+IJvfumUq1Yg8BMYWqSMNSv/zAVdGmsUYtRCX35vtUNrk0WFILVw9eNEBMHx8ra+HJCbBgq7lNZAx+R/4Z6YEJobWCOOLZ4m89pwxPB2Vut8vpHOi2Pgzmn91ebAgMBAAECggEAYeoiUqo1qxKXZRltKIbRKw+0MTiDKcfh4jDr+NnNfWJrbNmvRZcGAnoTQZG+vkAXwHxapdzz52Ax7rhfWTnEY7STpxdlQVV6dV/up+Frwud1NhAf8aYoy2+fgSNyj8FglXr96oJ/2eTgL3VY5tU6tqkw5mJ295pb6AxFoezIOeYO7SGvfkeo+jthr/M7gXnp8EoeXUEv2Yhje1f6jekH8Lx4bAk+aP+/wbIPCiHDCShbWEPPE65qJFTtsWL28CC+ETxWR6xzwf/5aVqhX0bvxyYN5z7aCLaN7xcAWVZZxen7YAm8bUnnyK22AYXVGvOAUu7rMbKwl7+9M3AaYfqEMQKBgQD0Ka0lzwhNz4JMoLbcALRZNB7p0O5VF0ctrFLVQgm0LlgAVW4bq/ar8K8DfHrfZbKUtm8iqNqiYwMprhSUG0OsGjCfCM5H3ApexQ0reSHBjfTdTFER8ejsSwFyNfYJSTzNPIRCjUmlJVothZEk01e2mZmWg1eNR9+2jbWnvpSaowKBgQDv9MbVKjKRF84vF2Kd9ar/B3NiTjR+MOUrA71hAmSHJS4yweZpTPNEHovawkDDOEHVzp3wTNQjCCx7RbGZqWsCeSOX+emHs5BxBS6LVohQ2q/nffmsOflM5H2wR0hCK56VeDWGfSRJ0PUd3nRlkyeGQdRcr0KPOOzNn4FREZPWqQKBgQCb+3QOT3EypHrNkW7ApgKRambFYSChY7mpSAmzC/k/DsxRikJJk1aHCcAFLiUhSssHjnT5Y34pd6+xlPC4naJh9GlTcEC4T66gVKrRNxWFnbbtGbBBEpaHPnOyDx8bV5psU1j7W1/NDUvLASV0rT+/++jO6yGntF8LNQT0ISC2mQKBgQDZmJjuGPP+Cx5YKdat82d7GSCTFuQXQvOuDBgh7m+G9jpsoNT2zGcVcLXWTK052rwozNMAZEtC8ViU+OBSvgViGsQiPuh8vGLReqd4h6HZ4FX/kIdmnLPr/I/V2O43wyJt3LJ9IOJVZf3BdkcLDWScJPoUioHLKw3icTBteYkc8QKBgFs3/EYF1K1e2zrMJTzZv+pt28DRVLdnSCkux+mldHDyWmNKGTuFnd59mANf2inIIx0sNxRaCDKTke1bGcXaWrZyRQWbbzeCuFYsrrqYRAq4yPRLgvlAosyK21g9Ox9kFUftRkrBxv9X6tqxvtT9XI0Qry1n066oI8TiQsc4JBMP" />
+        <!--<meta-data-->
+            <!--android:name="com.taobao.android.hotfix.IDSECRET"-->
+            <!--android:value="" />-->
+        <!--<meta-data-->
+            <!--android:name="com.taobao.android.hotfix.APPSECRET"-->
+            <!--android:value="" />-->
+        <!--<meta-data-->
+            <!--android:name="com.taobao.android.hotfix.RSASECRET"-->
+            <!--android:value="/++++HGXnDVlemTc3qMYuvuVsxXFhPlKDltBPgrR/Gp3LmME/oOyMaKzlVq/yRKx5pDsHlqlFLmfKb3NxtVVq+jCWvUdIpwPjRtN9NKrNz2m5hYXi/7oBs2ybwLMqJ+O0faNNsM7J0aG4R8mwfPDkooUvrrfMUGMwt8bsAHwORR9HK5gA7uFIna/Qy5UvldJkYQ6evgogcPIX6PL+fnnqZmVH8Ro8k2FM82RI1jc5qiSL1+MTjLpUnIZGZfAgMBAAECggEAW/PJXoA0uZ8hJihEgNUSPpt4ULTopcf5KI9bkxHQUPQKbWlVyvLbezVCCMIJn2707HbznKDWy/ihR4wjc2A6kA/cosrWLsqMIyf/C6Bd6dZVcCJkNqPbn09C1sbSiUAalMZCXNGuji+Af/XK/zAAzHB8m6vRk+h0cKQ0zjjcKHgAtuQA+jgOaIDmzRdVB598ILBomjSBrKgDx/TLlgp7g8Rr2WQf1hDOQCSHBhxJOSQ4cgbs69hoDVpTm0tPUd0HI9pXzJ/UXQj1BxQPY5o575j/qxQ6KyTpGLaJWhJu50FNwsTuNxeb/9Tn7Xgf9LZu1EWIUx/9pZeqfNgZ5j2QkQKBgQD60Bksk95FTzOHXr3MDQPcdpJKgXqQmAsXZWPc5KFXfDyljIQfoDeKVQlYl0bRuJoJismzT2JB2jPFFF+JRVjUQwfCYhw+nJkOwFxQFZ/gWsS5Bz9BKarKwuO/VL5Z/3uIlD+TLk02BQvhJ2pEAvpCMFs8Vu7vM8Dhyk1wJQGAVQKBgQCbGUq7qCz+G38djDAn7xQxfgBAnVnCYFMyTfWTMDqWHqqyenMSoFAlcxIFgRen5hdELL/QD69H5YrWJ/q2qZk2jXhWbJzmWRucL/weTMH0arlgcXQvp1VOzvdrzwT7KOXZ72OPwJUtI/stDEcFdM7SYTIiNIXxAm3cTToCa4Av4wKBgQCC/+oGJH11ifaJ/+v2Bd48ahninFod56vzXluYZjn27cbnWMsxkYcw01V8VhcBNwANd9X9t7rEVmmvyAJWOkg5JYGJ/6Bs+3HeCI6urXzBu+cAFU7uhArWuJAnwOVjMFOfdH74KrjdPCmGQgX42+1GYOdmTqmhelCGHhnwNwPfuQKBgE+Uw6bUHPnpa+jiVJc48hiO+VwuIK8+s5GdNMNoPLdoVterQr4s6dK9X2LZoSSyR//gIi+EzMBMRFesPdVZ4lZ+cl+N7Ve4IxWZ/XgilGZwGFwm+qG07223fnafy4N/saiIT4KkIyb9TlUH9q0TCUgjPREV+B/4yhv+uCQjuqtXAoGAJzf82Ky9iSxAA5MgRdjL43p7KwSpjyU1Y+IFjNJveQOfZTNpfyKn2mXmSnKo5Odgkt4OjGnyxWG4+tJXnrKZTJvr+zOWZJFeThM7TjuAbOuIhHi7XVBxBdcXtAO9wCMROglfYEX331ROIBBnZzCBFF5KEch2ChQ/chu9IuBemhc=" />-->
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -52,7 +52,10 @@
         <activity android:name=".activity.LinearProgressViewActivity" />
         <activity android:name=".activity.ScrollerViewActivity" />
         <activity android:name=".activity.MyScheduleActivity" />
-        <activity android:name=".activity.SelectActivity"></activity>
+        <activity android:name=".activity.SelectActivity" />
+        <activity android:name=".activity.SlideConflictActivity" />
+        <activity android:name=".activity.GoodActivity" />
+        <activity android:name=".activity.NotificationActivity"></activity>
     </application>
 
 </manifest>

@@ -3,6 +3,10 @@ package lzh.myview;
 import android.app.Application;
 import android.util.Log;
 
+import com.taobao.sophix.PatchStatus;
+import com.taobao.sophix.SophixManager;
+import com.taobao.sophix.listener.PatchLoadStatusListener;
+
 
 /**
  * Created by Administrator on 2017/7/6 0006.
@@ -13,8 +17,7 @@ public class MyApplication extends Application {
      * 全局Context，方便引用
      */
     public static MyApplication appContext;
-
-
+    private boolean is =false;
 
 
     @Override
@@ -55,6 +58,8 @@ public class MyApplication extends Application {
 //                    }
 //                }).initialize();
     }
+
+
     /***
      * 得到appContext
      *

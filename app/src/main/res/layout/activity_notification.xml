@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="lzh.myview.activity.NotificationActivity">
+
+    <lzh.myview.view.MyNotificationView
+        android:id="@+id/mnv"
+        android:layout_centerInParent="true"
+        app:mvInterval="3000"
+        app:mvSingleLine="true"
+        app:mvTextSize="@dimen/size_26px"
+        app:mvTextColor="@color/black_333333"
+        app:mvTimeTextColor="@color/grey_999999"
+        app:mvTimeTextSize ="@dimen/size_22px"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/size_50px"
+        android:layout_marginRight="@dimen/size_50px"
+        android:layout_height="@dimen/size_100px">
+    </lzh.myview.view.MyNotificationView>
+
+</RelativeLayout>

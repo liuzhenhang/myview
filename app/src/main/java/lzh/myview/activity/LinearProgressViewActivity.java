@@ -20,12 +20,12 @@ public class LinearProgressViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_linear_progress_view);
         ButterKnife.bind(this);
-        mlpv.setProgress(50);
+        mlpv.setProgress(0);
     }
 
     @OnClick(R.id.bt)
     public void onViewClicked() {
-        mlpv.setProgress(80);
+        mlpv.setProgress(50);
         mlpv.setType(2);
     }
 }
