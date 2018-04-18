@@ -5,21 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import lzh.myview.R;
 import lzh.myview.view.MyEditText;
 
 public class EditTextActivity extends AppCompatActivity {
 
-    @BindView(R.id.myet)
     MyEditText myet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_text);
-        ButterKnife.bind(this);
+        myet = findViewById(R.id.myet);
+
         // 获取焦点弹出软键盘
         myet.setFocusable(true);
         myet.setFocusableInTouchMode(true);

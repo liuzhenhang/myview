@@ -2,15 +2,18 @@ package lzh.myview;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -28,15 +31,40 @@ import lzh.myview.activity.ScaleViewActivity;
 import lzh.myview.activity.ScrollerViewActivity;
 import lzh.myview.activity.SelectActivity;
 import lzh.myview.activity.SlideConflictActivity;
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+   Button bt,bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9,bt10,bt11;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
         // queryAndLoadNewPatch不可放在attachBaseContext 中，否则无网络权限，建议放在后面任意时刻，如onCreate中
 //        SophixManager.getInstance().queryAndLoadNewPatch();
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        bt =findViewById(R.id.bt_good);
+        bt1 =findViewById(R.id.slideconflict);
+        bt2 =findViewById(R.id.Auditprogress);
+        bt3 =findViewById(R.id.CircularProgressView);
+        bt4 =findViewById(R.id.MyCouponView);
+        bt5 =findViewById(R.id.MyEditText);
+        bt6 =findViewById(R.id.MyLinearProgressView);
+        bt7 =findViewById(R.id.ScaleView);
+        bt8 =findViewById(R.id.ScrollerView);
+        bt9 =findViewById(R.id.MyScheduleView);
+        bt10 = findViewById(R.id.SelectView);
+        bt11 = findViewById(R.id.bt_notification);
+        bt.setOnClickListener(this);
+        bt1.setOnClickListener(this);
+        bt2.setOnClickListener(this);
+        bt3.setOnClickListener(this);
+        bt4.setOnClickListener(this);
+        bt5.setOnClickListener(this);
+        bt6.setOnClickListener(this);
+        bt7.setOnClickListener(this);
+        bt8.setOnClickListener(this);
+        bt9.setOnClickListener(this);
+        bt10.setOnClickListener(this);
+        bt11.setOnClickListener(this);
 
     }
 
@@ -46,9 +74,13 @@ public class MainActivity extends AppCompatActivity {
         if (SophixStubApplication.isIs()) Toast.makeText(getApplicationContext(),"补丁下载成功请重新启动", Toast.LENGTH_LONG).show();
     }
 
-    @OnClick({R.id.bt_good,R.id.slideconflict,R.id.Auditprogress, R.id.CircularProgressView, R.id.MyCouponView, R.id.MyEditText, R.id.MyLinearProgressView,
-            R.id.ScaleView, R.id.ScrollerView, R.id.MyScheduleView,R.id.SelectView,R.id.bt_notification})
-    public void onViewClicked(View view) {
+    private void setIntent(Class clas){
+        Intent intent = new Intent(this,clas);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onClick(View view) {
         switch (view.getId()) {
             case R.id.Auditprogress: // 审核进度view
                 setIntent(AuditprogressActivity.class);
@@ -87,10 +119,4 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
-
-    private void setIntent(Class clas){
-        Intent intent = new Intent(this,clas);
-        startActivity(intent);
-    }
-
 }

@@ -8,15 +8,13 @@ import android.os.Bundle;
 import android.support.annotation.DrawableRes;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import java.util.Random;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import lzh.myview.R;
 
 import static android.widget.RelativeLayout.ALIGN_PARENT_BOTTOM;
@@ -24,9 +22,8 @@ import static android.widget.RelativeLayout.CENTER_HORIZONTAL;
 import static android.widget.RelativeLayout.TRUE;
 
 public class GoodActivity extends AppCompatActivity {
-    @BindView(R.id.iv)
+
     ImageView IV;
-    @BindView(R.id.rl)
     RelativeLayout rl;
     private Random mRandom;
     private int width,hight;
@@ -48,8 +45,15 @@ public class GoodActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_good);
-        ButterKnife.bind(this);
+        IV = findViewById(R.id.iv);
+        rl = findViewById(R.id.rl);
         mRandom = new Random();
+        IV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initview();
+            }
+        });
     }
 
     private void initview() {
@@ -138,8 +142,5 @@ public class GoodActivity extends AppCompatActivity {
         return heartRes[mRandom.nextInt(heartRes.length)];
     }
 
-    @OnClick(R.id.iv)
-    public void onViewClicked() {
-        initview();
-    }
+
 }

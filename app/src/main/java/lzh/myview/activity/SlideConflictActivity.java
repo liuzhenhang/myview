@@ -11,12 +11,10 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import lzh.myview.R;
 
 public class SlideConflictActivity extends AppCompatActivity {
-    @BindView(R.id.vp)
+
     ViewPager vp;
     private ArrayList<View> vpList = new ArrayList<>();
 
@@ -24,7 +22,7 @@ public class SlideConflictActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slide_conflict);
-        ButterKnife.bind(this);
+        vp = findViewById(R.id.vp);
         LayoutInflater layoutInflater = getLayoutInflater().from(this);
         @SuppressLint("InflateParams")
         View vp01 = layoutInflater.inflate(R.layout.item_load01, null);

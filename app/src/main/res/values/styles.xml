@@ -7,5 +7,13 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <!--application统一主题样式-->
+    <style name="NoTitleBarTransTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:colorAccent">@color/red_e60012</item>
+        <item name="android:colorPrimary">@color/red_e60012</item>
+    </style>
 </resources>

@@ -6,21 +6,18 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import lzh.myview.R;
 import lzh.myview.view.SelectView;
 
 public class SelectActivity extends AppCompatActivity {
 
-    @BindView(R.id.sv)
     SelectView sv;
     ArrayList<String> list = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select);
-        ButterKnife.bind(this);
+        sv = findViewById(R.id.sv);
         list.add("天");
         list.add("月");
         list.add("天");

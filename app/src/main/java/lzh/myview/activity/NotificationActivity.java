@@ -8,14 +8,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import lzh.myview.R;
 import lzh.myview.view.MyNotificationView;
 
 public class NotificationActivity extends AppCompatActivity {
 
-    @BindView(R.id.mnv)
     MyNotificationView mnv;
     private List<String> listStr = new ArrayList<>(); // 公告内容集合
     private List<String> listtime = new ArrayList<>();//公告时间集合
@@ -24,7 +21,7 @@ public class NotificationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
-        ButterKnife.bind(this);
+        mnv = findViewById(R.id.mnv);
         init();
     }
 
